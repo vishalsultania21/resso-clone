@@ -1,92 +1,94 @@
-console.log("----- Welcome to dev options Music App -------");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music player</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/queue.css">
+    <link rel="stylesheet" href="./css/utilities.css">
 
-const bottom = document.querySelector(".bottom");
+    
 
-// Dev-Data
-const songs = [
-  {
-    img: "./shiddat.jpg",
-    song: "./music_files/Shiddat - Title Song.mp3",
-    title: "Shiddat",
-  },
-  { img: "./1.jpg", song: "./1.mp3", title: "One" },
-  { img: "./2.jpg", song: "./2.mp3", title: "Two" },
-  { img: "./3.jpg", song: "./3.mp3", title: "Three" },
-];
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="brand"><h6 class="brand--logo">Musicify.io</h6></li>
+            <div class="wrapper mr-3">
+                <form action="#" class="search">
+                    <button type="submit" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input type="text" placeholder="Search a Song" class="search-bar" name="search">
+                  </form>
+            </div>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="songlist">
+        <div class="banner"></div>  
+    </div>
+    <div class="bottom">
 
-let currentSongIndex = 0;
-let currentSong = songs[currentSongIndex];
+        <!-- wrapper -->
+        <div class="wrapper bottom-inner">
+            <div class="songInfo u-shadow">
+                <div class="wrapper u-width-100">
+                    <div class="songInfo--image">
+                        &nbsp;
+                    </div>
+                    <div class="wrapper-col">
+                        <h6 class="songInfo--text">Shiddat</h6>
+                        <p class="songInfo--sub">Arijit Singh, Neha Kakkar</p>
+                    </div>
+                    <p id="heart" class="songInfo--icon" style="color: black;" onClick="heart();">&hearts;</p>
+                </div>
+            </div>
 
-bottom.addEventListener("mouseout", function (e) {
-  e.preventDefault();
-  bottom.style.opacity = "0.75";
-  console.log(bottom.style.opacity);
+            <div class="queue-container wrapper">
+                <div class="wrapper-col queues-item">
+                    <div class="queues-item-img">&nbsp;</div>
+                    <h6 class="queues-item-text u-overflow-hidden">Chitta</h6>
+                </div>
 
-  setTimeout(() => {
-    bottom.style.opacity = "0.5";
-  }, 2000);
-});
+                <div class="wrapper-col queues-item">
+                    <div class="queues-item-img">&nbsp;</div>
+                    <h6 class="queues-item-text u-overflow-hidden">Teri Hogaiya</h6> 
+                </div>
 
-setTimeout(() => {
-  bottom.style.opacity = "0.5";
-}, 2000);
+                <div class="wrapper-col queues-item">
+                    <div class="queues-item-img">&nbsp;</div>
+                    <h6 class="queues-item-text">Chitta</h6>
+                </div>
 
-// Heart making
-const heart = () => {
-  document.getElementById("heart").classList.toggle("u-color-red");
-};
+                <div class="wrapper-col queues-item">
+                    <div class="queues-item-img">&nbsp;</div>
+                    <h6 class="queues-item-text u-overflow-hidden">Teri Hogaiya</h6> 
+                </div>
 
-// Play functionality
 
-const play = document.getElementById("masterplay");
+            </div>
+        </div>
 
-const playFctn = (song) => {
+        <input type="range" name="range" id="myprogressbar" value="0" min="0" max="100">
 
-  var audio = new Audio(song.song);
-  play.addEventListener("click", () => {
-    if (audio.paused || audio.currentTime <= 0) {
-      // Play it
-      audio.play();
-    } else {
-      audio.pause();
-    }
-  });
 
-  audio.addEventListener("timeupdate", () => {
-    // Update play bar
-    progress = parseInt((audio.currentTime / audio.duration) * 100);
-    myProgressBar.value = progress;
-  });
+        <!--fontawesome icons-->
+        <div class="wrapper btn-wrapper">
+            <i class="fas fa-3x fa-step-backward" id = "masterPrev" style="color: rgba(0, 0, 0, 0.6);"></i>
+            <i class="far fa-3x fa-play-circle" id="masterplay" style="color: rgba(0, 0, 0, 0.7);"></i>
+            <i class="fas fa-3x fa-step-forward" id = "masterNext" style="color: rgba(0, 0, 0, 0.6);"></i>
+        </div>
+    </div>
+    
 
-  myProgressBar.addEventListener("change", () => {
-    audio.currentTime = (myProgressBar.value * audio.duration) / 100; // As we have the myProgressBar.value in the form of percent 0-100
-  });
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8d4815bc62.js" crossorigin="anonymous"></script>
+    <script src="./script.js">
+    </script>
 
-  // Return the current audio variable to change it in future
-  return audio;
-};
-
-play.addEventListener("click", (e) => {
-  e.preventDefault();
-  play.classList.toggle("fa-circle-pause");
-  play.classList.toggle("fa-play-circle");
-});
-
-const myProgressBar = document.getElementById("myprogressbar");
-
-// Handle play pause
-let currentAudio = playFctn(currentSong);
-
-// Implement the prev and next
-
-const prev = document.getElementById("masterPrev");
-const next = document.getElementById("masterNext");
-
-prev.addEventListener("click", () => {
-    alert("Will implement this soon");
-});
-
-next.addEventListener("click", () => {
-  // Increase the current song value by 1
-  alert("Will implement this soon");
-});
+</body>
+</html>
