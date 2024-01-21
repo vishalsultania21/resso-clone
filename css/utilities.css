@@ -1,0 +1,26 @@
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.wrapper-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.u-shadow {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.u-overflow-hidden {
+    overflow: hidden;
+}
+
+.u-color-red {
+    color: red !important;
+}

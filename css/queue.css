@@ -1,0 +1,79 @@
+.u-width-100 {
+    width: 100%;
+}
+
+.queue-container {
+    padding: 1rem;
+    border-radius: 1rem;
+    width: 55%;
+
+    overflow-x: scroll;
+    margin-bottom: 1rem;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    display: none !important;
+}
+
+@media only screen and (max-width: 900px) {
+  .queue-container {
+      width: 100%;
+      margin-top: 1.5rem;
+      padding-top: 2rem;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+}
+
+.queue-container::-webkit-scrollbar {
+    width: 20px;
+    height: 0.5rem;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    height: 2px;
+    -webkit-appearance: none;
+    margin-top: -1px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    width: 5px;
+    -webkit-appearance: none;
+    height: 0.5rem;
+    background-color: rgb(10, 99, 0);
+    border-radius: 1rem;
+    opacity: 0.5;
+    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.84);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(10, 99, 0);
+  }
+
+
+/* Items */
+
+.queues-item {
+  width: 10rem;
+  height: fit-content;
+  border-radius: 1rem;
+}
+
+.queues-item-img {
+  width: 4rem;
+  height: 4rem;
+
+  border-radius: 1rem;
+  background-image: url('./../drawables/1.jpg');
+  background-size: cover;
+}
+
+.queues-item-text {
+  font-size: 1.2rem;
+  margin-top: 0.8rem;
+  font-weight: 400;
+  font-family: "Open Sans";
+  color: #000;
+}

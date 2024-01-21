@@ -1,0 +1,38 @@
+.search-bar {
+    background-color: transparent;
+    color: white;
+    width: fit-content;
+    border: none;
+}
+.search-bar:focus {
+    outline: none;
+}
+
+.form input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+  }
+
+.search-bar::placeholder {
+    font-size: 1rem;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    color: white;
+}
+
+.search-btn {
+    background-color: transparent;
+    color: white;
+    width: fit-content;
+    border: none;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.search {
+    border-bottom: 1.5px solid rgb(220, 220, 220);
+    padding: 0.5rem 0.5rem;
+}
